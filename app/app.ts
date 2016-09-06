@@ -5,10 +5,12 @@ import { StatusBar } from 'ionic-native';
 import { HomePage } from './pages/home/home';
 import {TemperaturePipe} from "./pipes/Temperature";
 import {Weather} from "./providers/weather/weather";
+import {StorageService} from "./providers/storage/storage";
 
 
 @Component({
   template: '<ion-nav [root]="rootPage"></ion-nav>',
+  providers: [Weather, StorageService],
 })
 export class MyApp {
   rootPage: any = HomePage;

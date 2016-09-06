@@ -1,17 +1,36 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
+import {Storage, SqlStorage} from "ionic-angular";
 
-/*
-  Generated class for the Storage provider.
-
-  See https://angular.io/docs/ts/latest/guide/dependency-injection.html
-  for more info on providers and Angular 2 DI.
-*/
 @Injectable()
-export class Storage {
+export class StorageService {
+  private storageDb = 'weatherstorage';
+  private storage: Storage;
+  private weathers: Array<Object>;
 
-  constructor(private http: Http) {}
+  constructor() {
+    this.storage = new Storage(SqlStorage, { name: this.storageDb});
+    this.getWeathers().then(data => {
+      this.weathers = JSON.parse(data);
+    })
+  }
 
+  getWeathers(){
+    return this.storage.get(this.storageDb);
+  }
+
+
+  setWeather(weather){
+    if(!this.weathers){
+      this.weathers = [weather]
+    }
+    else{
+      this.weathers.push(weather);
+    }
+    
+    this.storage.set(this.storageDb, JSON.stringify(this.weathers))
+  }
+  
 }
 

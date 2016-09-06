@@ -5,6 +5,7 @@ import {Weather} from "../../providers/weather/weather";
 import {TemperaturePipe} from "../../pipes/Temperature";
 import {ForecastPage} from "../forecast/forecast";
 import {WeatherEl} from "../../components/weather/weather";
+import {StorageService} from "../../providers/storage/storage";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -18,9 +19,17 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               private modalCtrl: ModalController,
-              private weather: Weather
+              private weather: Weather,
+              private storage: StorageService
   ) {
     this.getLocalWeather();
+    this.getStoredWeather();
+  }
+  
+  getStoredWeather(){
+    this.storage.getWeathers().then((weathers) => {
+      this.weatherList = JSON.parse(weathers) || [];
+    })
   }
 
   addWeather(){
@@ -38,6 +47,7 @@ export class HomePage {
       .map(data => data.json())
       .subscribe(data => {
         this.weatherList.push(data);
+        this.storage.setWeather(data);
       },
       err => console.log(err),
       () => console.log('getWeather completed')
