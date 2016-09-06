@@ -12,12 +12,13 @@ import {ForecastPage} from "../forecast/forecast";
 })
 export class HomePage {
   public weatherList = [];
+  public localWeather: Object;
 
   constructor(public navCtrl: NavController,
               private modalCtrl: ModalController,
               private weather: Weather
   ) {
-
+    this.getLocalWeather();
   }
 
   addWeather(){
@@ -44,6 +45,14 @@ export class HomePage {
   viewForecast(cityWeather){
     console.log('view forecast');
     this.navCtrl.push(ForecastPage, {cityWeather: cityWeather});
+  }
+
+  getLocalWeather(){
+    this.weather.local().subscribe(
+      data => {
+        this.localWeather = data;
+      }
+    )
   }
 
 }
