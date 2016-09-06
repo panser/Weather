@@ -13,7 +13,7 @@ import {ViewController} from 'ionic-angular';
 export class AddPage {
 
   public data = {
-    country: 'us',
+    country: 'ua',
   };
 
   constructor(private viewCtrl: ViewController) {
