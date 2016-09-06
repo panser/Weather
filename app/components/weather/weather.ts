@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Input, Output, EventEmitter} from '@angular/core';
+import {IONIC_DIRECTIVES} from "ionic-angular/index";
+import {TemperaturePipe} from "../../pipes/Temperature";
 
 /*
   Generated class for the Weather component.
@@ -8,13 +10,19 @@ import { Component } from '@angular/core';
 */
 @Component({
   selector: 'weather',
-  templateUrl: 'build/components/weather/weather.html'
+  templateUrl: 'build/components/weather/weather.html',
+  directives: [IONIC_DIRECTIVES],
+  pipes: [TemperaturePipe],
 })
-export class Weather {
+export class WeatherEl {
 
-  text: string;
+  @Input() weather: Object;
+  @Output() viewMore: EventEmitter<Object> = new EventEmitter();
 
   constructor() {
-    this.text = 'Hello World';
+  }
+
+  hitWeather(){
+    this.viewMore.next(this.weather);
   }
 }

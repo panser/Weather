@@ -4,11 +4,13 @@ import {AddPage} from "../add/add";
 import {Weather} from "../../providers/weather/weather";
 import {TemperaturePipe} from "../../pipes/Temperature";
 import {ForecastPage} from "../forecast/forecast";
+import {WeatherEl} from "../../components/weather/weather";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
   providers: [Weather],
   pipes: [TemperaturePipe],
+  directives: [WeatherEl],
 })
 export class HomePage {
   public weatherList = [];
