@@ -21,14 +21,18 @@
 <ion-content padding>
   <ion-list>
     <ion-item>
+      <ion-label stacked>City</ion-label>
+      <ion-input type="text" [(ngModel)]="data.city"></ion-input>
+    </ion-item>
+    <ion-item>
       <ion-label stacked>Country</ion-label>
-      <ion-select>
+      <ion-select [(ngModel)]="data.country">
         <ion-option value="us">Unites States</ion-option>
         <ion-option value="uk">United Kindom</ion-option>
       </ion-select>
     </ion-item>
   </ion-list>
   <div padding>
-    <button block (click)="dismiss()">Add Weather</button>
+    <button block (click)="dismiss(data)">Add Weather</button>
   </div>
 </ion-content>

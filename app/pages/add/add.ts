@@ -12,11 +12,15 @@ import {ViewController} from 'ionic-angular';
 })
 export class AddPage {
 
+  public data = {
+    country: 'us',
+  };
+
   constructor(private viewCtrl: ViewController) {
 
   }
 
-  dismiss(){
-    this.viewCtrl.dismiss();
-  } 
+  dismiss(formData){
+    this.viewCtrl.dismiss(formData);
+  }
 }

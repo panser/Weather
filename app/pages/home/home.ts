@@ -6,6 +6,8 @@ import {AddPage} from "../add/add";
   templateUrl: 'build/pages/home/home.html'
 })
 export class HomePage {
+  public weatherList = [];
+  
   constructor(public navCtrl: NavController,
               private modalCtrl: ModalController
   ) {
@@ -14,7 +16,9 @@ export class HomePage {
 
   addWeather(){
     let addWeatherModal = this.modalCtrl.create(AddPage);
-
+    addWeatherModal.onDidDismiss((data) => {
+      this.weatherList.push(data);
+    });
     addWeatherModal.present()
   }
 }
