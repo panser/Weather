@@ -3,6 +3,7 @@ import {NavController, ModalController} from 'ionic-angular';
 import {AddPage} from "../add/add";
 import {Weather} from "../../providers/weather/weather";
 import {TemperaturePipe} from "../../pipes/Temperature";
+import {ForecastPage} from "../forecast/forecast";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
@@ -42,6 +43,7 @@ export class HomePage {
 
   viewForecast(cityWeather){
     console.log('view forecast');
+    this.navCtrl.push(ForecastPage, {cityWeather: cityWeather});
   }
 
 }
