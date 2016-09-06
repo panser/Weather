@@ -2,10 +2,12 @@ import { Component } from '@angular/core';
 import {NavController, ModalController} from 'ionic-angular';
 import {AddPage} from "../add/add";
 import {Weather} from "../../providers/weather/weather";
+import {TemperaturePipe} from "../../pipes/Temperature";
 
 @Component({
   templateUrl: 'build/pages/home/home.html',
   providers: [Weather],
+  pipes: [TemperaturePipe],
 })
 export class HomePage {
   public weatherList = [];
