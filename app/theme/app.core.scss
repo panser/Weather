@@ -7,6 +7,10 @@
 // By default each design mode includes these shared imports.
 // App Shared Sass variables belong in app.variables.scss.
 
+img.logo-title {
+  height:60px;
+}
+
 @import "../pages/home/home";
 @import "../pages/add/add";
 @import "../pages/forecast/forecast";
