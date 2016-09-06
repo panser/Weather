@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {NavController, Modal} from 'ionic-angular';
+import {AddPage} from "../add/add";
 
 @Component({
   templateUrl: 'build/pages/home/home.html'
@@ -7,5 +8,11 @@ import { NavController } from 'ionic-angular';
 export class HomePage {
   constructor(public navCtrl: NavController) {
 
+  }
+
+  addWeather(){
+    let addWeatherModal = Modal.create(AddPage);
+    
+    this.navCtrl.present(addWeatherModal);
   }
 }

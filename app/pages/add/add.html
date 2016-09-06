@@ -7,12 +7,28 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>Add</ion-title>
+    <ion-title>Add Weather</ion-title>
+    <ion-buttons end>
+      <button royal (click)="dismiss()">
+        <ion-icon name="close-circle"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item>
+      <ion-label stacked>Country</ion-label>
+      <ion-select>
+        <ion-option value="us">Unites States</ion-option>
+        <ion-option value="uk">United Kindom</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button block (click)="dismiss()">Add Weather</button>
+  </div>
 </ion-content>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NavController } from 'ionic-angular';
+import {ViewController} from 'ionic-angular';
 
 /*
   Generated class for the AddPage page.
@@ -12,8 +12,11 @@ import { NavController } from 'ionic-angular';
 })
 export class AddPage {
 
-  constructor(private navCtrl: NavController) {
+  constructor(private viewCtrl: ViewController) {
 
   }
 
+  dismiss(){
+    this.viewCtrl.dismiss();
+  } 
 }
