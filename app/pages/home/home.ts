@@ -36,6 +36,10 @@ export class HomePage {
       err => console.log(err),
       () => console.log('getWeather completed')
       )
-
   }
+
+  viewForecast(cityWeather){
+    console.log('view forecast');
+  }
+
 }
