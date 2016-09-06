@@ -10,8 +10,18 @@ import 'rxjs/add/operator/map';
 */
 @Injectable()
 export class Weather {
+  private appId = '16fa7fe6fab8c648bee7e5d70266906e';
+  private baseUrl = 'http://api.openweathermap.org/data/2.5/';
 
   constructor(private http: Http) {}
 
+  city(city: string, country: string){
+    let url = this.baseUrl + 'weather';
+    url += '?appId=' + this.appId;
+    url += '&q=' + city;
+    url += ',' + country;
+
+    return this.http.get(url);
+  }
 }
 
