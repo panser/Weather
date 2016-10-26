@@ -1,0 +1,16 @@
+image: node:latest
+
+pages:
+  cache:
+      paths:
+      - node_modules/
+
+  script:
+  - npm install --global ionic
+  - ionic build
+
+  artifacts:
+    paths:
+    - www
+  only:
+  - master
